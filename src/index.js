@@ -5,6 +5,10 @@ import * as serviceWorker from './serviceWorker';
 import '../src/assets/styles/styles.css';
 /* ----------------------------------------------- */
 
+/* FONTAWSOME */
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 /* BOOSTRAP */
 
 import 'bootstrap/dist/css/bootstrap.min.css';

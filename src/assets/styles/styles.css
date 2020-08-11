@@ -5,6 +5,11 @@
     src: url(../fonts/righteous.regular.ttf);
 }
 
+@font-face{
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
 /* NAVBAR - HEADER STYLES */
 
 .header-cont{
@@ -35,3 +40,16 @@
     line-height: 40px;
     color: #FFFFFF;
 }
+
+/* LOGIN STYLES */
+
+.logIn-h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 30px;
+}
+
+
+
