@@ -1,0 +1,37 @@
+/* FONTS IMPORTS */
+
+@font-face{
+    font-family: Righteous;
+    src: url(../fonts/righteous.regular.ttf);
+}
+
+/* NAVBAR - HEADER STYLES */
+
+.header-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.navbar{
+    background-color:  #009688;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+}
+
+.maitefy_logo, h1{
+    margin: auto 0.25rem;
+}
+
+.navbar .maitefy_logo{
+    width: 37px;
+    height: 33px;
+}
+
+.navbar h1{
+    font-family: Righteous;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 40px;
+    color: #FFFFFF;
+}
