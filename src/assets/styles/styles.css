@@ -49,6 +49,21 @@
 
 /* LOGIN STYLES */
 
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+   
+.btn-create {
+    width: 100%;
+}
+
+.login-form-control {
+    width: 100vh;
+}
+
 .logIn-h1{
     font-family: Roboto;
     font-style: normal;
