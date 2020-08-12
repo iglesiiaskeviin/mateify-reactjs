@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header} from '../components/header.js';
+import {LoginHeader} from '../components/loginHeader.js';
 import IconButton from '@material-ui/core/IconButton';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import {Button} from '@material-ui/core'
@@ -8,7 +8,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 export const Login = () => {
     return (
         <div className="text-center main-section ">
-            <Header CoName="Mateify" CoLogoImg="https://cdn.discordapp.com/attachments/702899679947522121/714933469796499567/LogoSoloBlancoFondoTransparente.png"/>
+            <LoginHeader CoName="Mateify" CoLogoImg="https://cdn.discordapp.com/attachments/702899679947522121/714933469796499567/LogoSoloBlancoFondoTransparente.png"/>
             <div className="col-xs-6 col-lg-5 my-auto mx-auto p-5">
                 <div className="col-12 container-logo">
                     <LockOutlinedIcon color="secondary" />
