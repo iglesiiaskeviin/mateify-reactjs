@@ -9,8 +9,12 @@ export const Login = () => {
     return (
     <div className="col-xs">
         <LoginHeader CoName="Mateify" CoLogoImg="https://cdn.discordapp.com/attachments/702899679947522121/714933469796499567/LogoSoloBlancoFondoTransparente.png"/>
-        <div className="col-12 abs-center ">
-            <form action="" className="form col-lg-3 col-xs-12 login-form-control">
+        <div className="col-12 abs-center">
+            <form action="" className="form col-lg-4 col-xs-12 login-form-control">
+                <div className="col-12 p-5 text-center">
+                    <LockOutlinedIcon color="secondary" />
+                    <h1 className="logIn-h11">Ingresar</h1>
+                </div>
                 <div className="form-group col-lg">
                     <input type="text" class="form-control" id="" placeholder="Correo Electrónico"/>
                 </div>
