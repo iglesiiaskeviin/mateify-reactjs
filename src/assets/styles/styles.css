@@ -49,7 +49,25 @@
     font-weight: normal;
     font-size: 32px;
     line-height: 30px;
+    letter-spacing: 0.15px;
+    color: #333333;
 }
 
+.not-remember-pass-container{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 12px;
+    color: #009688;
+}
 
+.not-account{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 16px;
+    color: #C4C4C4;
+}
 
