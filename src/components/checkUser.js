@@ -11,8 +11,6 @@ class CheckUser extends React.Component {
           userData,
       };
     }
-
-    
   
     render() {
       return (

@@ -5,8 +5,12 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 import {Button} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import CheckUser from '../components/checkUser.js';
+import ErrorAutentication from '../components/authError.js';
 
-class Form extends React.Component {
+/* databaseImport */
+import Data from '.././databases/userData.json';
+
+class LoginForm extends React.Component {
 
     state = {
         email: '',
@@ -22,7 +26,22 @@ class Form extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        let userEmail = this.state.email;
+        let userPass = this.state.password;
+        let verification = (userData) => {
+            if (userEmail === userData.email && userPass === userData.password) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+       const userChecked = Data.some(verification);
+       console.log(userChecked);
+
+       /* 
+       const userChecked = Data.filter(verification);
+       console.log(userChecked);
+       */
     }
 
     render(){
@@ -38,7 +57,7 @@ class Form extends React.Component {
                 <div className="form-group col-lg">
                 <input 
                     type="text" 
-                    class="form-control" 
+                    className="form-control" 
                     name="email"
                     placeholder="Correo Electrónico" 
                     value={this.state.email}
@@ -48,7 +67,7 @@ class Form extends React.Component {
                 <div className="form-group col-lg">
                     <input 
                     type="password" 
-                    class="form-control" 
+                    className="form-control" 
                     name="password"
                     placeholder="Contraseña" 
                     value={this.state.password} 
@@ -94,4 +113,4 @@ class Form extends React.Component {
 }
 }
 
-export default Form;
+export default LoginForm;

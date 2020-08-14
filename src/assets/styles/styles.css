@@ -92,3 +92,23 @@
     color: #C4C4C4;
 }
 
+/* LOGIN ERROR STYLES */
+.error-container h1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 0.15px;
+}
+
+.error-container p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.15px;
+}
