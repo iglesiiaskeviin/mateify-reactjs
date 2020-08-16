@@ -1,13 +1,21 @@
 import React from 'react';
+/* COMPONENTS */
 import {LoginHeader} from '../components/loginHeader.js';
-import IconButton from '@material-ui/core/IconButton';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import {Button} from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import {LoggedHeader} from '../components/loggedHeader.js';
 import CheckUser from '../components/checkUser.js';
 import ErrorAutentication from '../components/authError.js';
-
-/* databaseImport */
+/* ASSETS */
+import IconButton from '@material-ui/core/IconButton';
+import {Button} from '@material-ui/core'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+import { useHistory } from "react-router-dom"
+/* DB */
 import Data from '.././databases/userData.json';
 
 class LoginForm extends React.Component {
@@ -26,22 +34,26 @@ class LoginForm extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault()
-        let userEmail = this.state.email;
-        let userPass = this.state.password;
-        let verification = (userData) => {
-            if (userEmail === userData.email && userPass === userData.password) {
+        const userExits = (element) => {
+            if (element.email === this.state.email && element.password === this.state.password) {
                 return true;
             } else {
                 return false;
             }
         }
-       const userChecked = Data.some(verification);
-       console.log(userChecked);
+    const userExitsArray = Data.filter(userExits);
+    
+    if(userExitsArray){
+        userExitsArray.map((index, key)=>{
+            let history = useHistory();
+            history.push(`/plyCreator${index.uuid}`)
+        })
+    }else{
+        console.log(false)
+    }
 
-       /* 
-       const userChecked = Data.filter(verification);
-       console.log(userChecked);
-       */
+    
+    
     }
 
     render(){

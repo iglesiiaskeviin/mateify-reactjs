@@ -4,13 +4,21 @@ import LoginForm from '../src/pages/login.js';
 import {LoginHeader} from './components/loginHeader.js';
 import {LoggedHeader} from './components/loggedHeader.js';
 import ErrorAutentication from '../src/components/authError.js';
-
-
+import {PlaylistCreator} from '../src/pages/plyCreator'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 function App() {
   return (
-    /* use ReactRouter */
     <div>
-      <LoginForm/>
+      <Router>
+        <Switch>
+          <Route path="/"><LoginForm/></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
