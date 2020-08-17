@@ -16,7 +16,7 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/"><LoginForm/></Route>
+          <Route path="/"><PlaylistCreator/></Route>
         </Switch>
       </Router>
     </div>
