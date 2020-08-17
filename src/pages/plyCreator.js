@@ -1,8 +1,8 @@
 import React from 'react';
 import {LoggedHeader} from '../components/loggedHeader';
 
-
-export const PlaylistCreator = () => {
+/* hacer que reconozca uuid mediante el login  */
+export const PlaylistCreator = props => {
     return (
         <div >
             <LoggedHeader />

@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 /* COMPONENTS */
 import {LoginHeader} from '../components/loginHeader.js';
 import {LoggedHeader} from '../components/loggedHeader.js';
-import CheckUser from '../components/checkUser.js';
 import ErrorAutentication from '../components/authError.js';
 /* ASSETS */
 import IconButton from '@material-ui/core/IconButton';
@@ -18,24 +17,26 @@ import { useHistory } from "react-router-dom"
 /* DB */
 import Data from '.././databases/userData.json';
 
-class LoginForm extends React.Component {
+const LoginForm = () => {
 
-    state = {
+    const [state, setState] = useState({
         email: '',
         password: '',
-    };
-
-    change = (e) => {
-        this.setState({
+    });
+    const history = useHistory();
+    
+    const change = (e) => {
+        setState({
+            ...state,
             [e.target.name]: e.target.value
         });
     };
 
 
-    onSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault()
         const userExits = (element) => {
-            if (element.email === this.state.email && element.password === this.state.password) {
+            if (element.email === state.email && element.password === state.password) {
                 return true;
             } else {
                 return false;
@@ -43,27 +44,23 @@ class LoginForm extends React.Component {
         }
     const userExitsArray = Data.filter(userExits);
     
-    if(userExitsArray){
-        userExitsArray.map((index, key)=>{
-            let history = useHistory();
-            history.push(`/plyCreator${index.uuid}`)
-        })
+    if(userExitsArray.length > 0){
+
+        history.push(`/plyCreator/${userExitsArray[0].uuid}`)
     }else{
-        console.log(false)
+        history.push(`/authError/`)
     }
 
     
     
     }
-
-    render(){
     return (
     <div className="col-xs">
         <LoginHeader CoName="Mateify" CoLogoImg="https://cdn.discordapp.com/attachments/702899679947522121/714933469796499567/LogoSoloBlancoFondoTransparente.png"/>
         <div className="col-12 abs-center">
             <form action="" className="form col-lg-4 col-xs-12 login-form-control">
                 <div className="col-12 p-5 text-center">
-                    <LockOutlinedIcon color="secondary" />
+                    <img src="https://cdn.discordapp.com/attachments/406536989811146784/744841536063406230/padlock.png" alt="" srcset=""/>
                     <h1 className="logIn-h11">Ingresar</h1>
                 </div>
                 <div className="form-group col-lg">
@@ -72,8 +69,8 @@ class LoginForm extends React.Component {
                     className="form-control" 
                     name="email"
                     placeholder="Correo Electrónico" 
-                    value={this.state.email}
-                    onChange={e=> this.setState({email: e.target.value})}
+                    value={state.email}
+                    onChange={change}
                 />
                 </div>
                 <div className="form-group col-lg">
@@ -82,8 +79,8 @@ class LoginForm extends React.Component {
                     className="form-control" 
                     name="password"
                     placeholder="Contraseña" 
-                    value={this.state.password} 
-                    onChange={e=> this.setState({password: e.target.value})}
+                    value={state.password} 
+                    onChange={change}
                     />
                 </div>
                 <div className="text-center">
@@ -93,7 +90,7 @@ class LoginForm extends React.Component {
                     className="btn-create" 
                     color="secondary" 
                     type="submit"
-                    onClick={ e => this.onSubmit(e)}
+                    onClick={onSubmit}
                     >
                     Comienza a crear playlists
                     </Button>
@@ -122,7 +119,6 @@ class LoginForm extends React.Component {
     </div>
 
     )
-}
 }
 
 export default LoginForm;

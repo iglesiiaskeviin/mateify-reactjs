@@ -10,7 +10,7 @@ class ErrorAutentication extends React.Component{
                 <LoginHeader CoName="Mateify" CoLogoImg="https://cdn.discordapp.com/attachments/702899679947522121/714933469796499567/LogoSoloBlancoFondoTransparente.png"/>
                 <div className="col abs-center">
                     <div className="col-xs">
-                         <LockOutlinedIcon color="secondary" /> 
+                         <img src="https://cdn.discordapp.com/attachments/406536989811146784/744841536063406230/padlock.png" alt="" srcset=""/>
                     </div>
                     <div className="col-xs text-center error-container">
                         <h1>MMM... algo no salió bien</h1>

@@ -16,7 +16,8 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/"><PlaylistCreator/></Route>
+          <Route path="/plyCreator/:uuid"><PlaylistCreator/></Route>
+          <Route path="/"><LoginForm/></Route>
         </Switch>
       </Router>
     </div>
