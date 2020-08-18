@@ -9,7 +9,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams,
+  useRouteMatch
 } from "react-router-dom";
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/plyCreator/:uuid"><PlaylistCreator/></Route>
-          <Route path="/"><LoginForm/></Route>
+          <Route path="/"><PlaylistCreator/></Route>
         </Switch>
       </Router>
     </div>

@@ -48,7 +48,7 @@ const LoginForm = () => {
 
         history.push(`/plyCreator/${userExitsArray[0].uuid}`)
     }else{
-        history.push(`/authError/`)
+        history.push(`/authError`)
     }
 
     
