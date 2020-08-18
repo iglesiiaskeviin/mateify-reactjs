@@ -19,7 +19,8 @@ function App() {
       <Router>
         <Switch>
           <Route path="/plyCreator/:uuid"><PlaylistCreator/></Route>
-          <Route path="/"><PlaylistCreator/></Route>
+          <Route path="/authError"><ErrorAutentication/></Route>
+          <Route path="/"><LoginForm/></Route>
         </Switch>
       </Router>
     </div>
