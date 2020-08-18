@@ -45,7 +45,6 @@ const LoginForm = () => {
     const userExitsArray = Data.filter(userExits);
     
     if(userExitsArray.length > 0){
-
         history.push(`/plyCreator/${userExitsArray[0].uuid}`)
     }else{
         history.push(`/authError`)
