@@ -10,7 +10,7 @@ import {
   /* DB */
 import Data from '.././databases/userData.json';
 
-export const PlaylistCreator = props => {
+export const HomePage = props => {
 
         let { uuid } = useParams();
         /* hacer lo mismo que en login */
