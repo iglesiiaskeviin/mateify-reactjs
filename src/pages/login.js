@@ -4,16 +4,17 @@ import {LoginHeader} from '../components/loginHeader.js';
 import {LoggedHeader} from '../components/loggedHeader.js';
 import ErrorAutentication from '../components/authError.js';
 /* ASSETS */
-import IconButton from '@material-ui/core/IconButton';
 import {Button} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { makeStyles } from '@material-ui/core/styles';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
+
 /* DB */
 import Data from '.././databases/userData.json';
 
@@ -23,8 +24,12 @@ const LoginForm = () => {
         email: '',
         password: '',
     });
+
+
     const history = useHistory();
     
+      
+
     const change = (e) => {
         setState({
             ...state,
@@ -47,7 +52,8 @@ const LoginForm = () => {
     if(userExitsArray.length > 0){
         history.push(`/plyCreator/${userExitsArray[0].uuid}`)
     }else{
-        history.push(`/authError`)
+        alert("Usuario y/o contraseña incorrectos")
+        /* history.push(`/authError`) */
     }
 
     

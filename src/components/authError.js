@@ -7,6 +7,7 @@ class ErrorAutentication extends React.Component{
     render(){
         return(
             <div>
+                
                 <LoginHeader CoName="Mateify" CoLogoImg="https://cdn.discordapp.com/attachments/702899679947522121/714933469796499567/LogoSoloBlancoFondoTransparente.png"/>
                 <div className="col abs-center">
                     <div className="col-xs">

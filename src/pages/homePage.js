@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import {LoggedHeader} from '../components/loggedHeader';
 import { useParams } from "react-router-dom";
 import {
@@ -9,11 +10,52 @@ import {
   } from "react-router-dom";
   /* DB */
 import Data from '.././databases/userData.json';
+import MusicData from '.././databases/songData.json';
+import { useHistory } from "react-router-dom";
+/* MATERIAL UI */
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
-export const HomePage = props => {
+export const HomePage = () => {
 
         let { uuid } = useParams();
-        /* hacer lo mismo que en login */
+
+        const history = useHistory();
+
+        const [inputValue, setInputValue] = useState("")
+
+        const [filterList, setFilterList] = useState([])
+
+
+        const onChange = (e) => {
+            setInputValue(e.target.value)
+        }
+
+        const filterListMusic = (music) => {
+            console.log("Buscado en el input: " + inputValue)
+            console.log("Canción: "+music)
+            if (music.name.includes(inputValue)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        const onInputKeyPress = (e) => {
+            if (e.key == 'Enter') {
+                const results = MusicData.filter(filterListMusic); //filterListMusic a definir aun
+                setFilterList(results);
+            }
+        } 
+
+        const handleAddMusic = (e, cancion) => {
+            console.log("Se ejecuta el handleAddMusic");
+            console.log("Me llega la cancion");
+            console.log(cancion);
+            // TODO actualizar la playlist de abajo (que en este ejemplo no esta pero en el de ustedes si)
+          };
+        
+
+        /*  */
         const userImage = (e) => {
             if (e.uuid) {
                 return true;
@@ -21,22 +63,23 @@ export const HomePage = props => {
                 return false;
             }
         }
-
+        
         const userArrayImg = Data.filter(userImage);
+
+
         if (userArrayImg.length > 0) {
             return  (
                     <div>
                     <LoggedHeader userPhoto={userArrayImg[0].profilePictureUrl}/>
-                    
-                    {/* search */}
-                    {/* <LoggedHeader value={userImage}/> */}
                     <div className="form-group col-xs p-5 flex-searchPly">
                     <div className="col-xs-12 col-lg-5">
                         <input 
                             type="text" 
                             className="form-control" 
-                            name="email"
+                            name="searchbar"
                             placeholder="Buscar" 
+                            onChange={onChange}
+                            onKeyPress={onInputKeyPress} 
                         />
                         </div>
                     </div>
@@ -55,8 +98,18 @@ export const HomePage = props => {
                                         <th scope="col-12">Agregar</th>
                                     </tr>
                                 </thead>
+                                {filterList.map((songs) => (
+                                    <tbody key={songs.uuid}>
+                                    
+                                        <td>{songs.name}</td>
+                                        <td>{songs.artist.name}</td>
+                                        <td>{songs.album}</td>
+                                        <td>{songs.duration}</td>
+                                        <td><AddCircleIcon onClick={(e) => handleAddMusic(e, songs)} color="secondary"/></td>
+                                    
+                                    </tbody>
+                                ))}
                             </table>
-                                <p className="not-result-text">No hay resultados: utiliza la barra de búsqueda para encontrar canciones</p>
                             </div>
                         </div>
                     </div>
@@ -85,6 +138,8 @@ export const HomePage = props => {
                 </div>
             </div>
             )
+        }else{
+            history.push(`/authError`)
         }
 
 }
