@@ -12,6 +12,7 @@ import {
 import Data from '.././databases/userData.json';
 import MusicData from '.././databases/songData.json';
 import { useHistory } from "react-router-dom";
+import { NotMusic } from '../components/notMusic.js';
 /* MATERIAL UI */
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
@@ -42,18 +43,21 @@ export const HomePage = () => {
 
         const onInputKeyPress = (e) => {
             if (e.key == 'Enter') {
-                const results = MusicData.filter(filterListMusic); //filterListMusic a definir aun
+                const results = MusicData.filter(filterListMusic); 
                 setFilterList(results);
             }
         } 
 
-        const handleAddMusic = (e, cancion) => {
+        const handleAddMusic = (e, songData) => {
             console.log("Se ejecuta el handleAddMusic");
-            console.log("Me llega la cancion");
-            console.log(cancion);
-            // TODO actualizar la playlist de abajo (que en este ejemplo no esta pero en el de ustedes si)
+            console.log(songData);
+
+            
+            
+            
+
+            //add to user playlist 
           };
-        
 
         /*  */
         const userImage = (e) => {
@@ -106,7 +110,6 @@ export const HomePage = () => {
                                         <td>{songs.album}</td>
                                         <td>{songs.duration}</td>
                                         <td><AddCircleIcon onClick={(e) => handleAddMusic(e, songs)} color="secondary"/></td>
-                                    
                                     </tbody>
                                 ))}
                             </table>
@@ -118,21 +121,18 @@ export const HomePage = () => {
                     <div className="col-lg your-ply-text ">
                         <p className="search-yourPly text-left">Tu playlist</p>
                         <div className="table-responsive">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col-12">Nombre</th>
-                                    <th scope="col-12">Artista</th>
-                                    <th scope="col-12">Duración</th>
-                                    <th scope="col-12">Cant. Votos</th>
-                                    <th scope="col-12">Votar</th>
-                                </tr>
-                            </thead>
-                        </table>
-                            <div className='not-music-info col-xs-12 col-lg-5'>
-                                <p>UPS!, TU PLAYLIST AÚN ESTÁ VACÍA</p>
-                                <span>Comienza a agregar canciones</span>
-                            </div>
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col-12">Nombre</th>
+                                        <th scope="col-12">Artista</th>
+                                        <th scope="col-12">Álbum</th>
+                                        <th scope="col-12">Duración</th>
+                                        <th scope="col-12">Agregar</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                           {/*  <NotMusic/> */}
                         </div>
                     </div>
                 </div>
