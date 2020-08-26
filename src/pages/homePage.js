@@ -25,6 +25,8 @@ export const HomePage = () => {
         const [inputValue, setInputValue] = useState("")
 
         const [filterList, setFilterList] = useState([])
+        
+        const [addMusic, setAddMusic] = useState([]);
 
 
         const onChange = (e) => {
@@ -42,7 +44,7 @@ export const HomePage = () => {
         }
 
         const onInputKeyPress = (e) => {
-            if (e.key == 'Enter') {
+            if (e.key === 'Enter') {
                 const results = MusicData.filter(filterListMusic); 
                 setFilterList(results);
             }
@@ -132,7 +134,7 @@ export const HomePage = () => {
                                     </tr>
                                 </thead>
                             </table>
-                           {/*  <NotMusic/> */}
+                                <ul>{}</ul>
                         </div>
                     </div>
                 </div>
