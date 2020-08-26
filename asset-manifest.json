@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/%7Bmateify-reactjs%7D/static/css/main.9598f0b4.chunk.css",
+    "main.js": "/%7Bmateify-reactjs%7D/static/js/main.fe63fb31.chunk.js",
+    "main.js.map": "/%7Bmateify-reactjs%7D/static/js/main.fe63fb31.chunk.js.map",
+    "runtime-main.js": "/%7Bmateify-reactjs%7D/static/js/runtime-main.b886bd68.js",
+    "runtime-main.js.map": "/%7Bmateify-reactjs%7D/static/js/runtime-main.b886bd68.js.map",
+    "static/css/2.30c2d978.chunk.css": "/%7Bmateify-reactjs%7D/static/css/2.30c2d978.chunk.css",
+    "static/js/2.08056990.chunk.js": "/%7Bmateify-reactjs%7D/static/js/2.08056990.chunk.js",
+    "static/js/2.08056990.chunk.js.map": "/%7Bmateify-reactjs%7D/static/js/2.08056990.chunk.js.map",
+    "index.html": "/%7Bmateify-reactjs%7D/index.html",
+    "precache-manifest.ce0a50ffcce3a19431873f74c5cb7355.js": "/%7Bmateify-reactjs%7D/precache-manifest.ce0a50ffcce3a19431873f74c5cb7355.js",
+    "service-worker.js": "/%7Bmateify-reactjs%7D/service-worker.js",
+    "static/css/2.30c2d978.chunk.css.map": "/%7Bmateify-reactjs%7D/static/css/2.30c2d978.chunk.css.map",
+    "static/css/main.9598f0b4.chunk.css.map": "/%7Bmateify-reactjs%7D/static/css/main.9598f0b4.chunk.css.map",
+    "static/js/2.08056990.chunk.js.LICENSE.txt": "/%7Bmateify-reactjs%7D/static/js/2.08056990.chunk.js.LICENSE.txt",
+    "static/media/styles.css": "/%7Bmateify-reactjs%7D/static/media/righteous.regular.490cb0e4.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b886bd68.js",
+    "static/css/2.30c2d978.chunk.css",
+    "static/js/2.08056990.chunk.js",
+    "static/css/main.9598f0b4.chunk.css",
+    "static/js/main.fe63fb31.chunk.js"
+  ]
+}
