@@ -15,6 +15,9 @@ import { useHistory } from "react-router-dom";
 import { NotMusic } from '../components/notMusic.js';
 /* MATERIAL UI */
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+
 
 export const HomePage = () => {
 
@@ -113,8 +116,12 @@ export const HomePage = () => {
                                 </thead>
                                 {filterList.map((songs) => (
                                     <tbody key={songs.uuid}>
-                                    
-                                        <td>{songs.name}</td>
+                                    <div className="cover-url-img">
+                                        <img src={songs.artist.coverUrl} alt="" srcset=""/>
+                                        <td>
+                                            <h5>{songs.name}</h5>
+                                        </td>
+                                    </div>
                                         <td>{songs.artist.name}</td>
                                         <td>{songs.album}</td>
                                         <td>{songs.duration}</td>
@@ -137,14 +144,24 @@ export const HomePage = () => {
                                         <th scope="col-12">Artista</th>
                                         <th scope="col-12">Álbum</th>
                                         <th scope="col-12">Duración</th>
+                                        <th scope="col-12">Cant. Votos</th>
+                                        <th scope="col-12">Votar</th>
                                     </tr>
                                 </thead>
                             {myPlaylist.map((c)=> (
-                                <tbody key={c.uuid}> 
-                                    <td>{c.name}</td>
+                                <tbody className="p-2" key={c.uuid}> 
+                                    <div className="cover-url-img">
+                                        <img src={c.artist.coverUrl} alt="" srcset=""/>
+                                        <td>
+                                            <h5>{c.name}</h5>
+                                        </td>
+                                    </div>
+                                    
                                     <td>{c.artist.name}</td>
                                     <td>{c.album}</td>
                                     <td>{c.duration}</td>
+                                    <td>0</td>
+                                    <div className="like-unlike p-3"><ThumbUpIcon/><br/><ThumbDownIcon/></div>
                                 </tbody>
                             ))}
                             </table>
