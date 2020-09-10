@@ -21,9 +21,9 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/plyCreator/:uuid"><HomePage/></Route>
+          <Route path="/plyCreator/:uuid/:name"><HomePage/></Route>
           <Route path="/authError"><ErrorAutentication/></Route>
-           <Route path="/"><LoginForm/></Route>
+          <Route path="/"><LoginForm/></Route>
         </Switch>
       </Router>
     </div>

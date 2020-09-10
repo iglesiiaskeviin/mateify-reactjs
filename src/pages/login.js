@@ -50,7 +50,7 @@ const LoginForm = () => {
     const userExitsArray = Data.filter(userExits);
     
     if(userExitsArray.length > 0){
-        history.push(`/plyCreator/${userExitsArray[0].uuid}`)
+        history.push(`/plyCreator/${userExitsArray[0].uuid}/${userExitsArray[0].email}`)
     }else{
         alert("Usuario y/o contraseña incorrectos")
         /* history.push(`/authError`) */

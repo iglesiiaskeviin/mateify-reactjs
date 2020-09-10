@@ -25,8 +25,9 @@ export const HomePage = () => {
         const [inputValue, setInputValue] = useState("")
 
         const [filterList, setFilterList] = useState([])
+
+        const [myPlaylist, setMyPlaylist] = useState([]);
         
-        const [addMusic, setAddMusic] = useState([]);
 
 
         const onChange = (e) => {
@@ -49,19 +50,25 @@ export const HomePage = () => {
                 setFilterList(results);
             }
         } 
-
-        const handleAddMusic = (e, songData) => {
-            console.log("Se ejecuta el handleAddMusic");
-            console.log(songData);
+ 
+        const handleAddMusic = (songData) => {
+            
+            //si no encontró
+            if (!myPlaylist.find(newS => newS.name === songData.name)) {
+                setMyPlaylist([
+                    ...myPlaylist,
+                    songData
+                ]);   
+            }else{
+                alert("Esa canción ya se encuentra en Tu Playlist!")
+            }
 
             
-            
-            
 
-            //add to user playlist 
-          };
 
-        /*  */
+        };
+
+
         const userImage = (e) => {
             if (e.uuid) {
                 return true;
@@ -111,7 +118,7 @@ export const HomePage = () => {
                                         <td>{songs.artist.name}</td>
                                         <td>{songs.album}</td>
                                         <td>{songs.duration}</td>
-                                        <td><AddCircleIcon onClick={(e) => handleAddMusic(e, songs)} color="secondary"/></td>
+                                        <td><AddCircleIcon onClick={(e) => handleAddMusic(songs)} color="secondary"/></td>
                                     </tbody>
                                 ))}
                             </table>
@@ -130,11 +137,17 @@ export const HomePage = () => {
                                         <th scope="col-12">Artista</th>
                                         <th scope="col-12">Álbum</th>
                                         <th scope="col-12">Duración</th>
-                                        <th scope="col-12">Agregar</th>
                                     </tr>
                                 </thead>
+                            {myPlaylist.map((c)=> (
+                                <tbody key={c.uuid}> 
+                                    <td>{c.name}</td>
+                                    <td>{c.artist.name}</td>
+                                    <td>{c.album}</td>
+                                    <td>{c.duration}</td>
+                                </tbody>
+                            ))}
                             </table>
-                                <ul>{}</ul>
                         </div>
                     </div>
                 </div>
